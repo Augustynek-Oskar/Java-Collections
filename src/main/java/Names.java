@@ -12,5 +12,23 @@ public class Names {
         names.add("Karolina");
         names.add("Dorota");
         names.add("Piotr");
+
+//        for (String name : names){
+//            System.out.println(name);
+//        }
+        showAllElementsOfArrayList(names);
+    }
+    public static void showAllElementsOfArrayList (List nameOfArrayList){
+        for (Object elements : nameOfArrayList){
+            System.out.println(elements);
+        }
+    }
+    public static void showListElementsWithoutDuplicates (List nameOfArrayList){
+        for (Object elements : nameOfArrayList){
+            if (nameOfArrayList.contains(elements)  ){
+
+
+            }
+        }
     }
 }
