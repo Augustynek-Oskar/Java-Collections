@@ -13,7 +13,9 @@ public class Names {
         names.add("Dorota");
         names.add("Piotr");
 
-        showListElementsWithoutDuplicates(names);
+//        showAllElementsOfArrayList(names);
+//        showListElementsWithoutDuplicates(names);
+        showReversedListContent(names);
 
     }
 
@@ -28,5 +30,12 @@ public class Names {
         nameOfArrayList.clear();
         nameOfArrayList.addAll(set);
         System.out.println(nameOfArrayList);
+    }
+    public static void showReversedListContent (List nameOfArrayList){
+        int arrayListLength = nameOfArrayList.size();
+        for (int i = arrayListLength; i > 0; i--){
+            System.out.println(nameOfArrayList.get(i - 1));
+
+        }
     }
 }
