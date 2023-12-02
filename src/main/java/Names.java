@@ -15,7 +15,8 @@ public class Names {
 
 //        showAllElementsOfArrayList(names);
 //        showListElementsWithoutDuplicates(names);
-        showReversedListContent(names);
+//        showReversedListContent(names);
+        changeElementOfTheList(names, "Anna", "Joanna");
 
     }
 
@@ -35,7 +36,16 @@ public class Names {
         int arrayListLength = nameOfArrayList.size();
         for (int i = arrayListLength; i > 0; i--){
             System.out.println(nameOfArrayList.get(i - 1));
-
         }
+    }
+    public static void changeElementOfTheList (List nameOfArrayList, String toDelete, String toAdd){
+        for (int i = 0; i < nameOfArrayList.size(); i++){
+            if (nameOfArrayList.get(i).equals(toDelete)){
+                int index = nameOfArrayList.indexOf(toDelete);
+                nameOfArrayList.remove(toDelete);
+                nameOfArrayList.add(index, toAdd);
+            }
+        }
+        System.out.println(nameOfArrayList);
     }
 }
