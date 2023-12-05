@@ -58,4 +58,7 @@ public class ArrayBasedList implements OwnList{
             array = Arrays.copyOf(array, newCapacity);
         }
     }
+    public void checkIndex(int index){
+        if (index >= size || index < 0) throw new IndexOutOfBoundsException("Wrong index!");
+    }
 }
