@@ -30,7 +30,7 @@ public class ArrayBasedList implements OwnList{
 
     @Override
     public Integer get(int i) {
-        return null;
+        return array[i];
     }
 
     @Override
