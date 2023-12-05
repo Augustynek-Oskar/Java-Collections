@@ -35,7 +35,7 @@ public class ArrayBasedList implements OwnList{
 
     @Override
     public void add(int index, Integer element) {
-
+        array[size++] = element;
     }
 
     @Override
