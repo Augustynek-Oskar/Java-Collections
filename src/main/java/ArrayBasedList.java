@@ -3,8 +3,18 @@ import java.util.Arrays;
 public class ArrayBasedList implements OwnList{
     public static void main(String[] args) {
         ArrayBasedList arrayBasedList = new ArrayBasedList();
+        System.out.println("Czy tablica jest pusta: " + arrayBasedList.isEmpty());
+        arrayBasedList.add(1);
+        arrayBasedList.add(1, 2);
+        System.out.println("Wielkość tablicy: " + arrayBasedList.size());
+        System.out.println("Wyswietl element spod ideksu zero: " + arrayBasedList.get(0) + ", i indeksu jeden: "+ arrayBasedList.get(1));
+        System.out.println("Czy tablica jest pusta: " + arrayBasedList.isEmpty());
+        arrayBasedList.remove(0);
+        System.out.println("Wyswietl element spod ideksu zero: " + arrayBasedList.get(0));
+        System.out.println("Wielkosc tablicy: " + arrayBasedList.size());
+        System.out.println("Pod indeksem jeden jest: " + arrayBasedList.get(1));
 
-        System.out.println(arrayBasedList.size());
+
     }
     Integer[] array;
     public int size;
@@ -48,6 +58,7 @@ public class ArrayBasedList implements OwnList{
 
     @Override
     public Integer remove(int index) {
+        if (index < 0 || index > size) throw  new IndexOutOfBoundsException("Wrong index!");
         Integer removedElement = array[index];
         System.arraycopy(array, index + 1, array, index, size - index - 1);
         array[size--] = null;
