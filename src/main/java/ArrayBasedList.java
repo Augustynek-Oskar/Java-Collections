@@ -37,6 +37,9 @@ public class ArrayBasedList implements OwnList{
 
     @Override
     public void add(int index, Integer element) {
+        if (index < 0 || index > size) throw  new IndexOutOfBoundsException("Wrong index!");
+        guaranteeCapacityOfArray();
+        System.arraycopy(array, index, array, index + 1, size - index);
         array[size++] = element;
         size++;
     }
