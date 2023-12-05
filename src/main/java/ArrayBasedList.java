@@ -1,12 +1,17 @@
 public class ArrayBasedList implements OwnList{
     public static void main(String[] args) {
-        ArrayBasedList array = new ArrayBasedList();
-        System.out.println(array.size);
+        ArrayBasedList arrayBasedList = new ArrayBasedList();
+        arrayBasedList.add(1, 2);
+        System.out.println(arrayBasedList.size());
     }
     Integer[] array;
     int size;
     final int ARRAY_CAPACITY = 5;
 
+    public ArrayBasedList() {
+        array = new Integer[ARRAY_CAPACITY];
+        size = 0;
+    }
 
     @Override
     public int size() {
