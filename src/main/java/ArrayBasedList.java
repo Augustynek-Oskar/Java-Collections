@@ -27,11 +27,13 @@ public class ArrayBasedList implements OwnList{
 
     @Override
     public void add(Integer element) {
+        guaranteeCapacityOfArray();
         array[size++] = element;
     }
 
     @Override
     public Integer get(int i) {
+        checkIndex(i);
         return array[i];
     }
 
