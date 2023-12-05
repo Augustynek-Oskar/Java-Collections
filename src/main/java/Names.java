@@ -13,9 +13,9 @@ public class Names {
         names.add("Dorota");
         names.add("Piotr");
 
-//        showAllElementsOfArrayList(names);
-//        showListElementsWithoutDuplicates(names);
-//        showReversedListContent(names);
+        showAllElementsOfArrayList(names);
+        showListElementsWithoutDuplicates(names);
+        showReversedListContent(names);
         changeElementOfTheList(names, "Anna", "Joanna");
 
     }
