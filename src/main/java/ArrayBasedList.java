@@ -1,11 +1,13 @@
+import java.util.Arrays;
+
 public class ArrayBasedList implements OwnList{
     public static void main(String[] args) {
         ArrayBasedList arrayBasedList = new ArrayBasedList();
 
-        System.out.println(arrayBasedList.get(1));
+        System.out.println(arrayBasedList.size());
     }
     Integer[] array;
-    private int size;
+    public int size;
     final int ARRAY_CAPACITY = 5;
 
     public ArrayBasedList() {
@@ -45,5 +47,12 @@ public class ArrayBasedList implements OwnList{
         System.arraycopy(array, index + 1, array, index, size - index - 1);
         array[size--] = null;
         return removedElement;
+    }
+
+    public void guaranteeCapacityOfArray() {
+        if (size == array.length) {
+            int newCapacity = array.length + 10;
+            array = Arrays.copyOf(array, newCapacity);
+        }
     }
 }
