@@ -1,11 +1,11 @@
 public class ArrayBasedList implements OwnList{
     public static void main(String[] args) {
         ArrayBasedList arrayBasedList = new ArrayBasedList();
-        arrayBasedList.add(1, 2);
-        System.out.println(arrayBasedList.size());
+
+        System.out.println(arrayBasedList.get(1));
     }
     Integer[] array;
-    int size;
+    private int size;
     final int ARRAY_CAPACITY = 5;
 
     public ArrayBasedList() {
@@ -36,10 +36,14 @@ public class ArrayBasedList implements OwnList{
     @Override
     public void add(int index, Integer element) {
         array[size++] = element;
+        size++;
     }
 
     @Override
     public Integer remove(int index) {
-        return null;
+        Integer removedElement = array[index];
+        System.arraycopy(array, index + 1, array, index, size - index - 1);
+        array[size--] = null;
+        return removedElement;
     }
 }
