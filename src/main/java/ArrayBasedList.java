@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class ArrayBasedList implements OwnList{
     public static void main(String[] args) {
         ArrayBasedList arrayBasedList = new ArrayBasedList();
+
         System.out.println("Czy tablica jest pusta: " + arrayBasedList.isEmpty());
         arrayBasedList.add(0, 1);
         arrayBasedList.add(1, 2);
@@ -13,9 +14,7 @@ public class ArrayBasedList implements OwnList{
         arrayBasedList.remove(0);
         System.out.println("Wyswietl element spod ideksu zero: " + arrayBasedList.get(0));
         System.out.println("Wielkosc tablicy: " + arrayBasedList.size());
-        System.out.println("Pod indeksem jeden jest: " + arrayBasedList.get(1));
-
-
+        System.out.println("Pod indeksem jeden jest: " + arrayBasedList.get(0));
 
     }
     Integer[] array;
