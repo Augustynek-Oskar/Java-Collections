@@ -4,8 +4,9 @@ public class ArrayBasedList implements OwnList{
     public static void main(String[] args) {
         ArrayBasedList arrayBasedList = new ArrayBasedList();
         System.out.println("Czy tablica jest pusta: " + arrayBasedList.isEmpty());
-        arrayBasedList.add(1);
+        arrayBasedList.add(0, 1);
         arrayBasedList.add(1, 2);
+        arrayBasedList.add(2, 3);
         System.out.println("Wielkość tablicy: " + arrayBasedList.size());
         System.out.println("Wyswietl element spod ideksu zero: " + arrayBasedList.get(0) + ", i indeksu jeden: "+ arrayBasedList.get(1));
         System.out.println("Czy tablica jest pusta: " + arrayBasedList.isEmpty());
@@ -13,6 +14,7 @@ public class ArrayBasedList implements OwnList{
         System.out.println("Wyswietl element spod ideksu zero: " + arrayBasedList.get(0));
         System.out.println("Wielkosc tablicy: " + arrayBasedList.size());
         System.out.println("Pod indeksem jeden jest: " + arrayBasedList.get(1));
+
 
 
     }
@@ -52,7 +54,7 @@ public class ArrayBasedList implements OwnList{
         if (index < 0 || index > size) throw  new IndexOutOfBoundsException("Wrong index!");
         guaranteeCapacityOfArray();
         System.arraycopy(array, index, array, index + 1, size - index);
-        array[size++] = element;
+        array[index] = element;
         size++;
     }
 
@@ -61,7 +63,7 @@ public class ArrayBasedList implements OwnList{
         if (index < 0 || index > size) throw  new IndexOutOfBoundsException("Wrong index!");
         Integer removedElement = array[index];
         System.arraycopy(array, index + 1, array, index, size - index - 1);
-        array[size--] = null;
+        array[--size] = null;
         return removedElement;
     }
 
