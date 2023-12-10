@@ -1,4 +1,4 @@
-public class Person {
+public class Person{
     String name;
     String surname;
     int yearOfBirth;
@@ -34,6 +34,7 @@ public class Person {
         this.weight = weight;
     }
     public String toString() {
-        return "Name: " + name + ", surname: " + surname + ", year of birth: " + yearOfBirth + ", height: " + height + ", weight: " + weight;
+        return "\nName: " + name + "\nsurname: " + surname + "\nyear of birth: " + yearOfBirth + "\nheight: " + height + "\nweight: " + weight + "\n";
     }
+
 }

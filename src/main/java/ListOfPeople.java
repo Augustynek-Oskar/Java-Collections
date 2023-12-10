@@ -13,11 +13,16 @@ public class ListOfPeople {
         people.add(new Person("Kacper", "Bętkowski", 1998, 173, 70));
         people.add(new Person("Michał", "Fąk", 2005, 190, 83));
 
-        Collections.sort(people, heightComparator);
-        System.out.println("Sorted from shortest to tallest: " + people);
+        Collections.sort(people, Comparator.comparingInt(Person::getYearOfBirth).reversed());
+        System.out.println("Sorted from youngest to oldest: \n" + people);
 
-        Collections.sort(people, weightComparator);
-        System.out.println("Sorted from heaviest to lightest: " + people);
+        people.sort(heightComparator);
+        System.out.println("Sorted from shortest to tallest: \n" + people);
+
+        people.sort(weightComparator);
+        System.out.println("Sorted from heaviest to lightest: \n" + people);
+
+
 
     }
 }
