@@ -1,4 +1,7 @@
 public class DoubleLinkedList {
+    Node head = null;
+    Node tail = null;
+    int size;
     class Node {
         String data;
         Node next;
@@ -7,9 +10,7 @@ public class DoubleLinkedList {
             this.data = data;
         }
     }
-    Node head = null;
-    Node tail = null;
-    int size;
+
     public void addNode(String data){
         Node newNode = new Node(data);
         if (head == null){
@@ -24,7 +25,7 @@ public class DoubleLinkedList {
             tail.next = null;
         }
     }
-    public static int size(Node head){
+    public int size(Node head){
         int count = 1;
         Node current = head;
         while (current.next != null){
@@ -34,6 +35,10 @@ public class DoubleLinkedList {
         return count;
     }
     public void addNodeAtIndex (int index, String data){
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Non-existent index!");
+        }
+
         Node newNode = new Node(data);
         if (index == 0){
             newNode.next = head;
@@ -49,6 +54,40 @@ public class DoubleLinkedList {
             }
             tail = newNode;
         }
-
+        else {
+            Node current = getIndex(index);
+            newNode.previous = current.previous;
+            newNode.next = current;
+            current.previous.next = newNode;
+            current.previous = newNode;
+        }
+        size++;
     }
+    public Node getIndex(int index){
+        Node current = head;
+        for (int i = 0; i < index; i++){
+            current = current.next;
+        }
+        return current;
+    }
+    public void removeNodeAtIndex (int index){
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Non-existent index!");
+        }
+        Node current = getIndex(index);
+        if (current.previous == null){
+            head = current.next;
+        }
+        else {
+            current.previous.next = current.next;
+        }
+        if (current.next == null){
+            tail = current.previous;
+        }
+        else {
+            current.next.previous = current.previous;
+        }
+        size--;
+    }
+
 }
