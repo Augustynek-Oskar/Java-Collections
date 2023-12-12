@@ -24,15 +24,10 @@ public class DoubleLinkedList {
             tail = newNode;
             tail.next = null;
         }
+        size++;
     }
-    public int size(Node head){
-        int count = 1;
-        Node current = head;
-        while (current.next != null){
-            current = current.next;
-            count += 1;
-        }
-        return count;
+    public int getSize(){
+        return size;
     }
     public void addNodeAtIndex (int index, String data){
         if (index < 0 || index > size) {
