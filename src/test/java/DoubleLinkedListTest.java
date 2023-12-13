@@ -31,16 +31,18 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     }
 
     @Test
+    @DisplayName("Should return size of the list")
     void getSize() {
+
+        Assertions.assertEquals(0, doubleLinkedList.getSize());
+
+        doubleLinkedList.addNode("SizeTest");
+        Assertions.assertEquals(1, doubleLinkedList.getSize());
     }
 
     @Test
     void addNodeAtIndex() {
 
-    }
-
-    @Test
-    void getIndex() {
     }
 
     @Test
