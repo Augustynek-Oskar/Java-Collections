@@ -2,7 +2,8 @@ public class DoubleLinkedList {
     Node head = null;
     Node tail = null;
     int size;
-    class Node {
+
+    static class Node {
         String data;
         Node next;
         Node previous;
