@@ -59,11 +59,20 @@ public class DoubleLinkedList {
         }
         size++;
     }
-    public Node getIndex(int index){
+    public Node getIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+
         Node current = head;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index && current != null; i++) {
             current = current.next;
         }
+
+        if (current == null) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+
         return current;
     }
     public void removeNodeAtIndex (int index){
