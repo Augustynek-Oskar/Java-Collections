@@ -40,41 +40,43 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     }
 
     @Test
+    @DisplayName("Should test adding nodes at index X and their references ")
     void addNodeAtIndex() {
-        // Test 1: Dodanie elementu na początku listy
-        doubleLinkedList.addNodeAtIndex(0, "A");
-        assertEquals("A", doubleLinkedList.head.data);
-        assertEquals(1, doubleLinkedList.getSize());
+        doubleLinkedList.addNode("One");
+        doubleLinkedList.addNode("Two");
+        doubleLinkedList.addNode("Three");
+        // One <-> Two <-> Three
 
-        // Test 2: Dodanie elementu na końcu listy
-        doubleLinkedList.addNodeAtIndex(1, "B");
-        assertEquals("B", doubleLinkedList.tail.data);
-        assertEquals(2, doubleLinkedList.getSize());
+        doubleLinkedList.addNodeAtIndex(0, "Zero");
+        assertEquals("Zero", doubleLinkedList.head.data);
+        assertEquals("One", doubleLinkedList.head.next.data);
+        assertEquals("Zero", doubleLinkedList.head.next.previous.data);
+        assertEquals(4, doubleLinkedList.getSize());
+        // (Zero) <-> One <-> Two <-> Three
 
-        // Test 3: Dodanie elementu na indeksie w środku listy
-        doubleLinkedList.addNodeAtIndex(1, "X");
-        assertEquals("X", doubleLinkedList.getIndex(1).data);
-        assertEquals(3, doubleLinkedList.getSize());
-//
-//        // Test 4: Sprawdzenie poprawności referencji
-//        assertEquals("A", doubleLinkedList.head.next.data);
-//        assertEquals("X", doubleLinkedList.getIndex(1).data);
-//        assertEquals("B", doubleLinkedList.tail.previous.data);
-//
-//        // Test 5: Dodanie elementu na końcu listy
-//        doubleLinkedList.addNodeAtIndex(3, "C");
-//        assertEquals("C", doubleLinkedList.tail.data);
-//        assertEquals(4, doubleLinkedList.getSize());
-//
-//        // Test 6: Sprawdzenie poprawności referencji po dodaniu na końcu
-//        assertEquals("B", doubleLinkedList.tail.previous.data);
-//        assertEquals("C", doubleLinkedList.tail.data);
-//        assertNull(doubleLinkedList.tail.next);
-//
-//        // Test 7: Próba dodania na nieistniejącym indeksie
-//        assertThrows(IndexOutOfBoundsException.class, () -> {
-//            doubleLinkedList.addNodeAtIndex(10, "D");
-//        });
+        doubleLinkedList.addNodeAtIndex(4, "Four");
+        assertEquals("Four", doubleLinkedList.tail.data);
+        assertEquals("Three", doubleLinkedList.tail.previous.data);
+        assertEquals("Four", doubleLinkedList.tail.previous.next.data);
+        assertEquals(5, doubleLinkedList.getSize());
+        // Zero <-> One <-> Two <-> Three <-> (Four)
+
+        doubleLinkedList.addNodeAtIndex(2, "Five");
+        assertEquals("Five", doubleLinkedList.getIndex(2).data);
+        assertEquals("Five", doubleLinkedList.getIndex(1).next.data);
+        assertEquals("Five", doubleLinkedList.getIndex(3).previous.data);
+        assertEquals(6, doubleLinkedList.getSize());
+        // Zero <-> One <-> (Five) <-> Two <-> Three <-> Four
+
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.addNodeAtIndex(10, "Eleven");
+        });
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.addNodeAtIndex(-1, "MinusOne");
+        });
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.addNodeAtIndex(7, "Eight");
+        });
     }
 
     @Test

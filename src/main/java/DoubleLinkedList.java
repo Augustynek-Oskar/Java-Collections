@@ -38,6 +38,7 @@ public class DoubleLinkedList {
         Node newNode = new Node(data);
         if (index == 0){
             newNode.next = head;
+            newNode.previous = null;
             if (head != null){
                 head.previous = newNode;
             }
@@ -45,17 +46,28 @@ public class DoubleLinkedList {
         }
         else if (index == size){
             newNode.previous = tail;
+            newNode.next = null;
             if (tail != null){
                 tail.next = newNode;
             }
             tail = newNode;
         }
         else {
-            Node current = getIndex(index);
-            newNode.previous = current.previous;
-            newNode.next = current;
-            current.previous.next = newNode;
-            current.previous = newNode;
+            Node current = head;
+            for (int i = 0; i < index; i++) {
+                if (current == null) {
+                    throw new IndexOutOfBoundsException("Invalid index");
+                }
+                current = current.next;
+            }
+            if (current != null) {
+                newNode.previous = current.previous;
+                newNode.next = current;
+                if (current.previous != null) {
+                    current.previous.next = newNode;
+                }
+                current.previous = newNode;
+            }
         }
         size++;
     }
