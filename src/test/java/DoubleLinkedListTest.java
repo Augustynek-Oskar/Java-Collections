@@ -119,12 +119,20 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     }
 
     @Test
+    @DisplayName("Tests getting index of the nodes")
     void getIndex() {
         doubleLinkedList.addNode("One");
         doubleLinkedList.addNode("Two");
         doubleLinkedList.addNode("Three");
 
+        assertEquals("One", doubleLinkedList.getIndex(0).data);
+        assertEquals("Two", doubleLinkedList.getIndex(1).data);
+        assertEquals("Three", doubleLinkedList.getIndex(2).data);
 
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.getIndex(-1);
+        });
 
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.getIndex(3);
+        });
     }
 }
