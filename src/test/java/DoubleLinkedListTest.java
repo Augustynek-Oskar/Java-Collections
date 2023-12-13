@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DoubleLinkedListTest {
 DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     @Test
-    @DisplayName("Adding two nodes and checking their references")
+    @DisplayName("Tests adding two nodes and checking their references")
     void addNode() {
 
         //Adding node one
@@ -40,7 +40,7 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     }
 
     @Test
-    @DisplayName("Should test adding nodes at index X and their references ")
+    @DisplayName("Tests adding nodes at index X and their references ")
     void addNodeAtIndex() {
         doubleLinkedList.addNode("One");
         doubleLinkedList.addNode("Two");
@@ -80,7 +80,7 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     }
 
     @Test
-    @DisplayName("Should test removing node at given index")
+    @DisplayName("Tests removing node at given index")
     void removeNodeAtIndex() {
 
         doubleLinkedList.addNode("One");
