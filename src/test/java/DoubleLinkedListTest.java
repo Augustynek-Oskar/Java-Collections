@@ -10,23 +10,23 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     @DisplayName("Tests adding two nodes and checking their references")
     void addNode() {
 
-        //Adding node one
         doubleLinkedList.addNode("One");
-        Assertions.assertEquals("One",doubleLinkedList.head.data);
-        Assertions.assertEquals(1, doubleLinkedList.getSize());
+        assertEquals("One",doubleLinkedList.head.data);
+        assertEquals(1, doubleLinkedList.getSize());
+        //One
 
-        //Adding node two
         doubleLinkedList.addNode("Two");
-        Assertions.assertEquals("Two", doubleLinkedList.tail.data);
-        Assertions.assertEquals(2, doubleLinkedList.getSize());
+        assertEquals("Two", doubleLinkedList.tail.data);
+        assertEquals(2, doubleLinkedList.getSize());
+        //One Two
 
-        //Checking for reference of head and tail
-        Assertions.assertEquals("Two", doubleLinkedList.head.next.data);
-        Assertions.assertEquals("One", doubleLinkedList.tail.previous.data);
+        assertEquals("Two", doubleLinkedList.head.next.data);
+        assertEquals("One", doubleLinkedList.tail.previous.data);
+        //Reference test
 
+        assertNull( doubleLinkedList.head.previous);
+        assertNull( doubleLinkedList.tail.next);
         //Checking for head previous and tail next data
-        Assertions.assertNull( doubleLinkedList.head.previous);
-        Assertions.assertNull( doubleLinkedList.tail.next);
     }
 
     @Test
@@ -118,4 +118,13 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
         });
     }
 
+    @Test
+    void getIndex() {
+        doubleLinkedList.addNode("One");
+        doubleLinkedList.addNode("Two");
+        doubleLinkedList.addNode("Three");
+
+
+
+    }
 }
