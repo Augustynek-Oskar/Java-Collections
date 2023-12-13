@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DoubleLinkedListTest {
 DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     @Test
-    @DisplayName("Adding two nodes and checking their refernces")
+    @DisplayName("Adding two nodes and checking their references")
     void addNode() {
 
         //Adding node one
@@ -80,6 +80,42 @@ DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
     }
 
     @Test
+    @DisplayName("Should test removing node at given index")
     void removeNodeAtIndex() {
+
+        doubleLinkedList.addNode("One");
+        doubleLinkedList.addNode("Two");
+        doubleLinkedList.addNode("Three");
+        //One Two Three
+
+        doubleLinkedList.removeNodeAtIndex(0);
+        assertEquals("Two", doubleLinkedList.head.data);
+        assertEquals("Three", doubleLinkedList.head.next.data);
+        assertEquals("Two", doubleLinkedList.head.next.previous.data);
+        assertEquals(2, doubleLinkedList.getSize());
+        //Two Three
+
+        doubleLinkedList.removeNodeAtIndex(1);
+        assertEquals("Two", doubleLinkedList.head.data);
+        assertEquals("Two", doubleLinkedList.tail.data);
+        assertNull(doubleLinkedList.head.next);
+        assertEquals(1, doubleLinkedList.getSize());
+        //Two
+
+        doubleLinkedList.removeNodeAtIndex(0);
+        assertNull(doubleLinkedList.head);
+        assertNull(doubleLinkedList.tail);
+        assertEquals(0, doubleLinkedList.getSize());
+        //null
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.removeNodeAtIndex(0);
+        });
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.removeNodeAtIndex(-1);
+        });
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {doubleLinkedList.removeNodeAtIndex(1);
+        });
     }
+
 }
